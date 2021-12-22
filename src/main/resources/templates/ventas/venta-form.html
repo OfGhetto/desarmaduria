@@ -1,0 +1,41 @@
+<form class="form" role="form" autocomplete="off" th:action="@{/ventas/crear}" th:object="${venta}" method="post">
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Codigo</label>
+		<div class="col-lg-9">
+			<input class="form-control"  type="text" th:field="*{codigo}">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Fecha</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="date" th:field="*{fecha}">
+		</div>
+	</div>
+		<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Escoger Articulos</label>
+		<div class="col-lg-9">
+			<select class="form-control" th:field="*{articulos}"  multiple="multiple" required>
+				<th:block th:each="a: ${listaArticulos}"> 
+					<option th:text="${a.nombre}+'   '+${a.precioCompra}" th:value="${a.id}">
+				</th:block>
+				
+			</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Vendedor</label>
+		<div class="col-lg-9">
+			<select th:field="${venta.vendedor}" Attribute="multiple">
+				<option th:each="cl :${vendedores}" th:value="${cl.id}"
+					th:text="${cl.nombre}+' '+${cl.apellido}"></option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-lg-12 text-center">
+			<input type="reset" class="btn btn-secondary" value="Cancel">
+			<input type="submit" class="btn btn-primary" value="Guardar">
+		</div>
+	</div>
+	<input type="hidden" th:field="*{id}" />
+</form>

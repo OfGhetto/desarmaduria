@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Creacion de Vehiculos</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/}">inicio</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/clientes/client}">Clientes</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/vehiculos/vehiculo}">Vehiculos</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1 th:text="${titulo}"
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+
+		<form th:action="@{/vehiculos/vehiculo}" th:object="${vehiculo}" method="post">
+
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">marca</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{marca}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('marca')}" th:errors="*{marca}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">modelo</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{modelo}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('modelo')}" th:errors="*{modelo}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label" th:text="Cliente"></label>
+				<div class="col-sm-6">
+					<select  th:field="${vehiculo.cliente}" Attribute="multiple">
+						<option th:each="cl :${clientes}" th:value="${cl.id}" th:text="${cl.nombre}+' '+${cl.apellido}+' '+${cl.rutCliente}"></option>
+					</select>
+				</div>
+			</div><br>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">anio</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{anio}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('anio')}" th:errors="*{anio}">Error</div>
+				</div>
+			</div><br>
+			
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="submit" value="Guardar" class="btn btn-primary" />
+				</div>
+			</div>
+			<input type="hidden" th:field="*{id}" />
+		</form>
+	</div><br>
+	<div class="container"><form th:action="@{/}" method="get">
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="submit" value="inicio" class="btn btn-primary" /><br>
+				</div>
+			</div>
+		</form></div><br>
+</body>
+</html>

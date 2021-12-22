@@ -1,0 +1,52 @@
+<meta charset="UTF-8">
+<div class="table-responsive">
+	<div class="table-wrapper">
+		<table id="userList"
+			class="table table-striped table-hover table-bordered ">
+			 <div class="col-sm-8" th:if="${flag==true}" ><h2> <b>Listado de Articulos</b></h2></div>
+			<thead class="thead-light">
+				<tr>
+					<th>id</th>
+					<th>Nombre</th>
+					<th>Precio Compra</th>
+					<th>Ubicacion</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="articulo: ${articulos}">
+					<td class="col-sm-1 " ><img class="img " th:src="@{'/images/'+${articulo.imagen}}" th:alt="${articulo.imagen}" style="max-width:80%;"></td>
+					<td th:text="${articulo.nombre}"></td>
+					<td th:text="${articulo.precioCompra}"></td>
+					<td th:text="${articulo.bodega.nombre}"></td>
+					<td>
+					<a th:href="@{'/articulos/detalle/'+ ${articulo.id}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a><a
+						th:href="@{'/articulos/editarArticulo/'+ ${articulo.id}}"
+						class="edit" title="Edit" data-toggle="tooltip"><i
+							class="material-icons">&#xE254;</i></a> <a
+						th:href="@{'/articulos/eliminarArticulo/'} + ${articulo.id}"
+						class="delete" title="Delete" data-toggle="tooltip"><i
+							class="material-icons">&#xE872;</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		<div class="table-wrapper" th:if="${flag==true}">
+		<table id="userList"
+			class="table table-striped table-hover table-bordered ">
+			 <div class="col-sm-8"><h2> <b>Stock disponible</b></h2></div>
+			<thead class="thead-light">
+				<tr>
+					<th>Nombre</th>
+					<th>Stock</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${nombre}"></td>
+					<td th:text="${stock}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

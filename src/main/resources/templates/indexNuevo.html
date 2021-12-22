@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/index2.css">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		
+			<a class="navbar-brand" href="#">SISTEMA DE DESARMADURIA</a>
+	
+
+		<div style="color: white; padding-left: 70%">
+			<a> Usuario:Administrador </a>
+		</div>
+
+
+
+	</nav>
+
+	<div class="box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="box-part text-center">
+						<div>
+							<a th:href="@{/clientes/gestiona}"><img
+								src="/images/index/cliente.png"></a>
+							<h5>Clientes</h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+					<div class="box-part text-center">
+						<div>
+							<a th:href="@{/vehiculos/gestiona}"> <img
+								src="/images/index/vehiculo.png" alt="" /></a>
+							<h5>Vehiculos</h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="box-part text-center">
+						<div>
+							<a th:href="@{/articulos/gestiona}"> <img
+								src="/images/index/repuesto.png" alt="">
+							</a>
+							<h5>Articulos</h5>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-2"></div>
+				<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+					<div class="box-part text-center">
+						<div>
+							<a th:href="@{/vendedores/gestiona}"> <img
+								src="/images/index/vendedor.png" alt="">
+							</a>
+							<h5>Vendedor</h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="box-part text-center">
+						<div>
+							<a th:href="@{/ventas/gestiona}"> <img
+								src="/images/index/ventas.png" alt="">
+							</a>	
+							<h5>Ventas</h5>
+						</div>
+					</div>
+				</div>
+			<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+					<div class="box-part text-center">
+						<div>
+							<a th:href="@{/bodegas/gestiona}"> <img
+								src="/images/index/bodegas.png" alt="">
+							</a>	
+							<h5>Bodegas</h5>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

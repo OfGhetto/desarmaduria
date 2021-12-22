@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+
+<body>
+
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				
+				<h4> Buscar Cliente por nombre</h4>
+				<form th:action="@{/clientes/nombre}" th:object="${cliente}" method="get">
+					<input type="text" th:field="*{nombre}" class="form-control  col-md-4"/>							
+					<button type="sumbit" class="btn btn-success mt-4 mb-4">Buscar</button>
+				</form>
+				
+				<table class="table">
+				<thead>
+					<tr>
+						<th>id</th><th>rut Cliente</th><th>nombre</th><th>apellido</th><th>email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="data : ${clientePorNombre}">
+						<td th:text="${data.id}"></td>
+						<td th:text="${data.rutCliente}"></td>
+						<td th:text="${data.nombre}"></td>
+						<td th:text="${data.apellido}"></td>
+						<td th:text="${data.email}"></td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

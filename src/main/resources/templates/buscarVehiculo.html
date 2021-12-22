@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+
+<body>
+
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				
+				<h4> Buscar Vehiculos por Marca</h4>
+				<form th:action="@{/vehiculos/marca}" th:object="${vehiculo}" method="get">
+					<input type="text" th:field="*{marca}" class="form-control  col-md-4"/>							
+					<button type="sumbit" class="btn btn-success mt-4 mb-4">Buscar</button>
+				</form>
+				
+				<table class="table">
+				<thead>
+					<tr>
+						<th>id</th><th>marco</th><th>modelo</th><th>año</th><th>Cliente asociado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="v: ${vehiculosPorMarca}" >
+						<td th:text="${v.id}"></td>
+						<td th:text="${v.marca}"></td>
+						<td th:text="${v.modelo}"></td>
+						<td th:text="${v.anio}"></td>
+						<td th:text="${v.cliente.nombre}"></td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

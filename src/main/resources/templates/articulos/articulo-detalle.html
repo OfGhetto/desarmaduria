@@ -1,0 +1,7 @@
+<meta charset="UTF-8">
+<img class="img-thumbnail rounded float-left" th:src="@{'/images/'+${articulo.imagen}}" th:alt="${articulo.imagen}" style="max-width:25%;">
+<ul class="list-group">
+<li class="list-group-item" th:text="'NOMBRE DEL ARTICULO: ' +${articulo.nombre}"></li>
+<li class="list-group-item" th:text="'PRECIO DE COMPRA: ' +${articulo.precioCompra}"></li>
+<li class="list-group-item" th:text="'UBICACION DEL ARTICULO: ' +${articulo.bodega.nombre}"></li>
+</ul>

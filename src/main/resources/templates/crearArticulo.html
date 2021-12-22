@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Creacion de articulos</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/}">inicio</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/clientes/client}">Clientes</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/vehiculos/vehiculo}">Vehiculos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/articulos/articulo}">Articulos</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1 th:text="${titulo}"
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+
+		<form th:action="@{/articulos/articulo}" th:object="${articulo}" method="post">
+
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">Nombre</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{nombre}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('nombre')}" th:errors="*{nombre}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">Precio</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{precio}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('precio')}" th:errors="*{precio}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">ubicacion</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{ubicacion}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}">Error</div>
+				</div>
+			</div><br>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">categoria</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{categoria}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('categoria')}" th:errors="*{categoria}">Error</div>
+				</div>
+			</div><br>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="submit" value="Guardar" class="btn btn-primary" />
+				</div>
+			</div>
+			<input type="hidden" th:field="*{id}" />
+		</form>
+	</div><br>
+</body>
+</html>

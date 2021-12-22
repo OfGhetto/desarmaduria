@@ -1,0 +1,25 @@
+<div class="table-responsive">
+	<div class="table-wrapper">
+		<table id="userList"
+			class="table table-striped table-hover table-bordered ">
+			<thead class="thead-light">
+				<tr>
+					<th>id</th>
+					<th>nombre</th>
+					<th>capacidad</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="bodega: ${bodegas}">
+					<td th:text="${bodega.id}"></td>
+					<td th:text="${bodega.nombre}"></td>
+					<td th:text="${bodega.capacidad}"></td>
+					<td> <a
+						th:href="@{'/bodegas/editarBodega/'+ ${bodega.id}}" class="edit" title="Edit" data-toggle="tooltip"><i
+							class="material-icons">&#xE254;</i></a> <a th:href="@{'/bodegas/eliminarBodega/'} + ${bodega.id}" class="delete"
+						title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

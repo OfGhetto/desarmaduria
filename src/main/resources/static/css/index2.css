@@ -1,0 +1,41 @@
+html,body{
+    background: -webkit-linear-gradient(to right, hsl(0, 100%, 100%), hsla(0, 0%, 100%, 0.986)), url(static/gears5.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(240, 62%, 5%, 0.849), hsla(240, 62%, 5%, 0.849)), url(../gears5.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+span{
+    font-size:15px;
+}
+.container a{
+    text-decoration:none;
+    color: #ffffff00;
+    border-bottom:2px solid #ffffff00;
+}
+
+
+.box-part{
+
+    margin:30px 0px;
+}
+.text{
+    margin:0;
+}
+
+.container h5{
+    color: #ffff;
+    font-size:30px
+}
+
+.fa{
+    color:#4183D7;
+}
+.container img {
+    height:200px;
+    width:200px
+}

@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="table-title">
+	<div class="row">
+		<div class="col-sm-8">
+			<h2>
+				<a th:href="@{/}" class="btn" type="submit"><i class="fa fa-home"></i></a><b>Vehiculos</b>
+			</h2>
+		</div>
+		<div class="col-sm-4">
+<section class="webdesigntuts-workshop">  
+			<form th:action="@{/vehiculos/marca}" th:object="${vehiculo}" method="get">
+				<input type="text" th:field="*{marca}"
+					placeholder="buscar vehiculo por marca..">
+			<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+			</form>
+</section>
+		</div>
+	</div>
+</div>

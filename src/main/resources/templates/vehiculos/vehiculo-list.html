@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<div class="table-responsive">
+	<div class="table-wrapper">
+		<table id="userList"
+			class="table table-striped table-hover table-bordered ">
+			<thead class="thead-light">
+				<tr>
+					<th>id</th>
+					<th>marca</th>
+					<th>modelo</th>
+					<th>año</th>
+					<th>Cliente asociado</th>
+					<th>acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vehiculo: ${vehiculos}">
+					<td th:text="${vehiculo.id}"></td>
+					<td th:text="${vehiculo.marca}"></td>
+					<td th:text="${vehiculo.modelo}"></td>
+					<td th:text="${vehiculo.anio}"></td>
+					<td th:text="${vehiculo.cliente.nombre}"></td>
+					<td><a
+						th:href="@{'/vehiculos/editarVehiculo/'+ ${vehiculo.id}}"
+						class="edit" title="Edit" data-toggle="tooltip"><i
+							class="material-icons">&#xE254;</i></a> <a
+						th:href="@{'/vehiculos/eliminarVehiculo/'} + ${vehiculo.id}"
+						class="delete" title="Delete" data-toggle="tooltip"><i
+							class="material-icons">&#xE872;</i></a> <a
+						th:href="@{'/sendEmailTo/' + ${vehiculo.cliente.id}}" class="email"
+						title="Email" data-toggle="tooltip"><i
+							class="material-icons">&#xE0BE;</i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

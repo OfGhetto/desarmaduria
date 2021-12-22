@@ -1,0 +1,30 @@
+<form class="form" role="form" autocomplete="off" th:action="@{/vendedores/crear}" th:object="${vendedor}" method="post">
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+		<div class="col-lg-9">
+			<input class="form-control"  type="text" th:field="*{nombre}">
+			<div class="alert-danger" th:if="#{fields.hasErrors('nombre')}" th:errors="*{nombre}">Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Apellido</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text" th:field="*{apellido}">
+			<div class="alert-danger" th:if="#{fields.hasErrors('apellido')}" th:errors="*{apellido}">Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">telefono</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text" th:field="*{telefono}">
+			<div class="alert-danger" th:if="#{fields.hasErrors('telefono')}" th:errors="*{telefono}">Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-lg-12 text-center">
+			<input type="reset" class="btn btn-secondary" value="Cancel">
+			<input type="submit" class="btn btn-primary" value="Guardar">
+		</div>
+	</div>
+	<input type="hidden" th:field="*{id}" />
+</form>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<th:block th:if=${flag==true}>
+			<a class="navbar-brand" href="#">SISTEMA DE DESARMADURIA</a>
+		</th:block>
+		<th:block th:if=${flag==false}>
+			<a class="navbar-brand" href="#">SISTEMA DE DESARMADURIA</a>
+		</th:block>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/}">inicio</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/clientes/client}">Clientes</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<h1 th:text="${titulo}"
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+
+		<form th:action="@{/clientes/client}" th:object="${cliente}" method="post">
+
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">Rut</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{rutCliente}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('rutCliente')}" th:errors="*{rutCliente}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">Nombre</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{nombre}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('nombre')}" th:errors="*{nombre}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">Apellido</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{apellido}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('apellido')}" th:errors="*{apellido}">Error</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{email}" class="form-control" />
+					<div class="alert-danger" th:if="#{fields.hasErrors('email')}" th:errors="*{email}">Error</div>
+				</div>
+			</div><br>
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="submit" value="Guardar" class="btn btn-primary" />
+				</div>
+			</div>
+			<input type="hidden" th:field="*{id}" />
+		</form>
+	</div><br>
+	<div class="container"><form th:action="@{/clientes/volver}" method="get">
+			<div class="form-group">
+				<div class="col-sm-6">
+					<input type="submit" value="inicio" class="btn btn-primary" /><br>
+				</div>
+			</div>
+		</form></div><br>
+</body>
+</html>
